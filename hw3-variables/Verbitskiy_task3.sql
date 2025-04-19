@@ -1,4 +1,3 @@
-set serveroutput on;
 
 /*
 Автор: Verbitskiy M.S
