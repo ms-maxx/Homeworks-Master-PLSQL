@@ -1,54 +1,54 @@
 set serveroutput on;
 
 /*
-Автор: Verbitskiy M.S
-Описание скрипта: API для сущностей “Платеж” и “Детали платежа”
+РђРІС‚РѕСЂ: Verbitskiy M.S
+РћРїРёСЃР°РЅРёРµ СЃРєСЂРёРїС‚Р°: API РґР»СЏ СЃСѓС‰РЅРѕСЃС‚РµР№ вЂњРџР»Р°С‚РµР¶вЂќ Рё вЂњР”РµС‚Р°Р»Рё РїР»Р°С‚РµР¶Р°вЂќ
 */
 
---Создание платежа
+--РЎРѕР·РґР°РЅРёРµ РїР»Р°С‚РµР¶Р°
 Declare 
-  v_message varchar2(50) :='Платеж создан';
+  v_message varchar2(50) :='РџР»Р°С‚РµР¶ СЃРѕР·РґР°РЅ';
   c_status_create constant number := 0;
 Begin 
-  dbms_output.put_line(v_message || '. Статус: ' || c_status_create);
+  dbms_output.put_line(v_message || '. РЎС‚Р°С‚СѓСЃ: ' || c_status_create);
 end;
 /
---Сброс платежа
+--РЎР±СЂРѕСЃ РїР»Р°С‚РµР¶Р°
 Declare 
-  v_message varchar2(100 char) := 'Сброс платежа в "ошибочный статус" с указанием причины';
+  v_message varchar2(100 char) := 'РЎР±СЂРѕСЃ РїР»Р°С‚РµР¶Р° РІ "РѕС€РёР±РѕС‡РЅС‹Р№ СЃС‚Р°С‚СѓСЃ" СЃ СѓРєР°Р·Р°РЅРёРµРј РїСЂРёС‡РёРЅС‹';
   c_status_error constant number := 2;
-  v_reason varchar2(50) :=  'недостаточно средств';
+  v_reason varchar2(50) :=  'РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃСЂРµРґСЃС‚РІ';
 Begin 
-  dbms_output.put_line(v_message || '. Статус: ' || c_status_error || '. Причина: ' || v_reason);
+  dbms_output.put_line(v_message || '. РЎС‚Р°С‚СѓСЃ: ' || c_status_error || '. РџСЂРёС‡РёРЅР°: ' || v_reason);
 end;
 /
---Отмена платежа
+--РћС‚РјРµРЅР° РїР»Р°С‚РµР¶Р°
 Declare 
-  v_message varchar2(100) := 'Отмена платежа с указанием причины';
+  v_message varchar2(100) := 'РћС‚РјРµРЅР° РїР»Р°С‚РµР¶Р° СЃ СѓРєР°Р·Р°РЅРёРµРј РїСЂРёС‡РёРЅС‹';
   c_status_cancel constant number := 3;
-  v_reason varchar2(50) :=  'ошибка пользователя';
+  v_reason varchar2(50) :=  'РѕС€РёР±РєР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ';
 Begin 
-  dbms_output.put_line(v_message || '. Статус: ' || c_status_cancel || '. Причина: ' || v_reason);
+  dbms_output.put_line(v_message || '. РЎС‚Р°С‚СѓСЃ: ' || c_status_cancel || '. РџСЂРёС‡РёРЅР°: ' || v_reason);
 end;
 /
---Завершение платежа (успешно)
+--Р—Р°РІРµСЂС€РµРЅРёРµ РїР»Р°С‚РµР¶Р° (СѓСЃРїРµС€РЅРѕ)
 Declare 
-  v_message varchar2(100) := 'Успешное завершение платежа';
+  v_message varchar2(100) := 'РЈСЃРїРµС€РЅРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ РїР»Р°С‚РµР¶Р°';
   c_status_end_pay_succes constant number := 1;
 Begin 
-  dbms_output.put_line(v_message || '. Статус: ' || c_status_end_pay_succes);
+  dbms_output.put_line(v_message || '. РЎС‚Р°С‚СѓСЃ: ' || c_status_end_pay_succes);
 end;
 /
---Добавление/обновление данных платежа
+--Р”РѕР±Р°РІР»РµРЅРёРµ/РѕР±РЅРѕРІР»РµРЅРёРµ РґР°РЅРЅС‹С… РїР»Р°С‚РµР¶Р°
 Declare 
-v_message varchar2(150) := 'Данные платежа добавлены или обновлены по списку id_поля/значение';
+v_message varchar2(150) := 'Р”Р°РЅРЅС‹Рµ РїР»Р°С‚РµР¶Р° РґРѕР±Р°РІР»РµРЅС‹ РёР»Рё РѕР±РЅРѕРІР»РµРЅС‹ РїРѕ СЃРїРёСЃРєСѓ id_РїРѕР»СЏ/Р·РЅР°С‡РµРЅРёРµ';
 Begin 
   dbms_output.put_line(v_message);
 end;
 /
---Удаление платежа
+--РЈРґР°Р»РµРЅРёРµ РїР»Р°С‚РµР¶Р°
 Declare 
-v_message varchar2(100) := 'Детали платежа удалены по списку id_полей';
+v_message varchar2(100) := 'Р”РµС‚Р°Р»Рё РїР»Р°С‚РµР¶Р° СѓРґР°Р»РµРЅС‹ РїРѕ СЃРїРёСЃРєСѓ id_РїРѕР»РµР№';
 Begin 
   dbms_output.put_line(v_message);
 end;
