@@ -1,0 +1,41 @@
+Платеж создан. Статус: 0. ID: 
+date: 28.apr.2025 time: 23:19:02
+
+
+PL/SQL procedure successfully completed.
+
+ID объекта не может быть пустым
+Сброс платежа в "ошибочный статус" с указанием причины. Статус: 2. Причина: недостаточно средств. ID: 
+TWENTY-EIGHT FOUR TWO THOUSAND TWENTY-FIVE 23:02:19:96859
+
+
+PL/SQL procedure successfully completed.
+
+ID объекта не может быть пустым
+Отмена платежа с указанием причины. Статус: 3. Причина: ошибка пользователя. ID: 
+28.04.25 23:03:19:32038 century: 21
+
+
+PL/SQL procedure successfully completed.
+
+ID объекта не может быть пустым
+Успешное завершение платежа. Статус: 1. ID: 
+28th of april year: 2025 time:  23:19:3
+
+
+PL/SQL procedure successfully completed.
+
+ID объекта не может быть пустым
+Данные платежа добавлены или обновлены по списку id_поля/значение. ID: 
+28/apr/2025 2.4.2
+
+
+PL/SQL procedure successfully completed.
+
+ID объекта не может быть пустым
+Детали платежа удалены по списку id_полей. ID: 
+mon 04 2025 11:04:19:39435
+
+
+PL/SQL procedure successfully completed.
+
