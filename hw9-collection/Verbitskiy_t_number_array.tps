@@ -1,2 +1,1 @@
-create or replace type t_number_array is table of number(38,0);
-/
+create or replace type t_numbers_array is table of number(38,0);

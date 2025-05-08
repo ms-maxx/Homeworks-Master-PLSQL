@@ -11,7 +11,7 @@ Declare
   c_status_create constant payment.status%type := 0;
   v_current_date date := sysdate; 
   v_payment_id payment.payment_id%type;
-  v_payment_detail t_payment_detail_array := t_payment_detail_array(t_payment_detail(1, 'CLIENT_SOFTWARE'),
+  v_payment_details t_payment_details_array := t_payment_details_array(t_payment_detail(1, 'CLIENT_SOFTWARE'),
                                                                     t_payment_detail(2, 'IP'),
                                                                     t_payment_detail(3, 'NOTE'),
                                                                     t_payment_detail(4, 'IS_CHECKED_FRAUD'));
@@ -80,7 +80,7 @@ Declare
 v_message varchar2(200 char) := 'Данные платежа добавлены или обновлены по списку id_поля/значение';
 v_current_date date := sysdate; 
 v_payment_id payment.payment_id%type;
-v_payment_detail t_payment_detail_array := t_payment_detail_array(t_payment_detail(1, 'CLIENT_SOFTWARE'),
+v_payment_details t_payment_details_array := t_payment_details_array(t_payment_detail(1, 'CLIENT_SOFTWARE'),
                                                                     t_payment_detail(2, 'IP'),
                                                                     t_payment_detail(3, 'NOTE'),
                                                                     t_payment_detail(4, 'IS_CHECKED_FRAUD'));
@@ -98,7 +98,7 @@ Declare
 v_message varchar2(200 char) := 'Детали платежа удалены по списку id_полей';
 v_current_date timestamp := systimestamp;
 v_payment_id payment.payment_id%type;
-v_delete_payment t_number_array :=t_number_array(1,2,3);
+v_delete_field_pay t_numbers_array :=t_numbers_array(1,2,3);
 Begin 
     if v_payment_id is null 
     then dbms_output.put_line('ID объекта не может быть пустым');
