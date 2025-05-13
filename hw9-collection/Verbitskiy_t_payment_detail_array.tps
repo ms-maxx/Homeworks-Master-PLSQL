@@ -1,0 +1,1 @@
+create or replace type t_payment_details_array is table of t_payment_detail;
