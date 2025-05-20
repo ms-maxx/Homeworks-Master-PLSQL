@@ -1,3 +1,5 @@
+--Проверка "Создания платежа"
+
 Declare 
 v_payment_details t_payment_details_array := t_payment_details_array(t_payment_detail(1, 'CLIENT_SOFTWARE'),
                                                                     t_payment_detail(2, 'IP'),
@@ -9,7 +11,9 @@ Begin
 	v_payment_id := create_payment(v_payment_details, 
 								   p_currency_id => 840,
 								   p_from_client_id => 1,
-								   p_to_client_id =>2);
+								   p_to_client_id =>2,
+                                   p_create_date => sysdate,
+                                   p_summa => 6000);
 	dbms_output.put_line('Payment ID:' || v_payment_id);
 end;
 /
@@ -67,3 +71,6 @@ Begin
 						  p_delete_field_pay =>v_delete_field_pay);
 End;
 /
+
+
+									
