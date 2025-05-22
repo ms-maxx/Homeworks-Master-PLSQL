@@ -1,24 +1,24 @@
---Отмена платежа
+--РћС‚РјРµРЅР° РїР»Р°С‚РµР¶Р°
 Create or replace procedure cancel_payment(p_payment_id payment.payment_id%type, 
 p_reason payment.status_change_reason%type)
 is
-  v_message varchar2(200 char) := 'Отмена платежа с указанием причины';
+  v_message varchar2(200 char) := 'РћС‚РјРµРЅР° РїР»Р°С‚РµР¶Р° СЃ СѓРєР°Р·Р°РЅРёРµРј РїСЂРёС‡РёРЅС‹';
   c_status_cancel constant payment.status%type := 3;
   v_current_date payment.CREATE_DTIME%type := systimestamp;
   c_status_create constant payment.status%type := 0;
 Begin 
     if p_payment_id is null 
-    then dbms_output.put_line('ID объекта не может быть пустым');
+    then dbms_output.put_line('ID РѕР±СЉРµРєС‚Р° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј');
     end if;
     
     if p_reason is null 
-    then dbms_output.put_line('Причина не может быть пустой');
+    then dbms_output.put_line('РџСЂРёС‡РёРЅР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚РѕР№');
     end if;
 
-  dbms_output.put_line(v_message || '. Статус: ' || c_status_cancel || '. Причина: ' || p_reason || '. ID: ' || p_payment_id);
+  dbms_output.put_line(v_message || '. РЎС‚Р°С‚СѓСЃ: ' || c_status_cancel || '. РџСЂРёС‡РёРЅР°: ' || p_reason || '. ID: ' || p_payment_id);
   dbms_output.put_line(to_char(v_current_date, 'dd.mm.YY hh24:ss:mi:ff5 "century: "CC'));
   
-  -- Обновление платежа 
+  -- РћР±РЅРѕРІР»РµРЅРёРµ РїР»Р°С‚РµР¶Р° 
     Update Payment p1
     set p1.status = c_status_cancel,
         p1.status_change_reason = p_reason

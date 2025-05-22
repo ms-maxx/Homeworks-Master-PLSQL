@@ -1,23 +1,23 @@
---Добавление/обновление данных платежа
+--Ж’РѕР±Р°РІР»РµРЅРёРµ/РѕР±РЅРѕРІР»РµРЅРёРµ РґР°РЅРЅС‹С… РїР»Р°С‚РµР¶Р°
 Create or replace procedure insert_or_update_payment_detail(p_payment_id PAYMENT_DETAIL.payment_id%type, 
 p_payment_details t_payment_details_array)
 is
-v_message varchar2(200 char) := 'Данные платежа добавлены или обновлены по списку id_поля/значение';
+v_message varchar2(200 char) := 'Ж’Р°РЅРЅС‹Рµ РїР»Р°С‚РµР¶Р° РґРѕР±Р°РІР»РµРЅС‹ РёР»Рё РѕР±РЅРѕРІР»РµРЅС‹ РїРѕ СЃРїРёСЃРєСѓ id_РїРѕР»В¤/Р·РЅР°С‡РµРЅРёРµ';
 v_current_date payment.CREATE_DTIME%type:= sysdate;
 Begin 
      if p_payment_details is not empty then 
         for i in p_payment_details.first .. p_payment_details.last loop
             if (p_payment_details(i).field_id is null) then 
-            dbms_output.put_line('ID поля не может быть пустым');
+            dbms_output.put_line('ID РїРѕР»В¤ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј');
             end if;
             
             if (p_payment_details(i).field_value is null) then 
-            dbms_output.put_line('Значение в поля не может быть пустым');
+            dbms_output.put_line('В«РЅР°С‡РµРЅРёРµ РІ РїРѕР»В¤ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј');
             end if;
             dbms_output.put_line('Failed_id: ' || p_payment_details(i).field_id || '. Value: ' || p_payment_details(i).field_value);
         end loop;
     else 
-        dbms_output.put_line('Коллекция не содержит данных');
+        dbms_output.put_line('В РѕР»Р»РµРєС†РёВ¤ РЅРµ СЃРѕРґРµСЂР¶РёС‚ РґР°РЅРЅС‹С…');
     end if;
 	
 	dbms_output.put_line(v_message || '. ID: ' || p_payment_id);

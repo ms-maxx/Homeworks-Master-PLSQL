@@ -1,19 +1,19 @@
---Завершение платежа (успешно)
+--Р—Р°РІРµСЂС€РµРЅРёРµ РїР»Р°С‚РµР¶Р° (СѓСЃРїРµС€РЅРѕ)
 Create or replace procedure successful_finish_payment(p_payment_id payment.payment_id%type)
 is 
-  v_message varchar2(200 char) := 'Успешное завершение платежа';
+  v_message varchar2(200 char) := 'РЈСЃРїРµС€РЅРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ РїР»Р°С‚РµР¶Р°';
   c_status_end_pay_succes constant payment.status%type := 1;
   v_current_date payment.CREATE_DTIME%type:= sysdate; 
   c_status_create constant payment.status%type := 0;
 Begin 
     if p_payment_id is null 
-    then dbms_output.put_line('ID объекта не может быть пустым');
+    then dbms_output.put_line('ID РѕР±СЉРµРєС‚Р° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј');
     end if;
            
-  dbms_output.put_line(v_message || '. Статус: ' || c_status_end_pay_succes || '. ID: ' || p_payment_id);
+  dbms_output.put_line(v_message || '. РЎС‚Р°С‚СѓСЃ: ' || c_status_end_pay_succes || '. ID: ' || p_payment_id);
   dbms_output.put_line(to_char(v_current_date, 'ddth "of" fmmonth "year:" fmYYYY "time: " fmhh24:mi:ss'));
   
-  -- Обновление платежа 
+  -- РћР±РЅРѕРІР»РµРЅРёРµ РїР»Р°С‚РµР¶Р° 
     Update Payment p1
     set p1.status = c_status_end_pay_succes,
         p1.status_change_reason = null
