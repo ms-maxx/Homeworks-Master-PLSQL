@@ -44,7 +44,7 @@ Begin
         insert (payment_id, field_id, field_value)
         values (pd.payment_id, pd.field_id, pd.field_value);
 end;
-/
+
 
 --Удаление платежа
 
@@ -70,7 +70,7 @@ Begin
     dbms_output.put_line(to_char(v_current_date, 'dy MM YYYY hh12:ss:mi:ff5'));
     dbms_output.put_line('Количество удаляемых полей: ' || p_delete_field_pay.count());
 end;
-/
+
 
 end;
 /
