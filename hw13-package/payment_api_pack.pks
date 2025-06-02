@@ -23,9 +23,11 @@ Create or replace package payment_api_pack is
 --Создание платежа
 
 	function create_payment(p_payment_details t_payment_details_array,
-										p_currency_id payment.currency_id%type,
-										p_from_client_id payment.from_client_id%type,
-										p_to_client_id payment.to_client_id%type) return payment.payment_id%type;
+p_currency_id payment.currency_id%type,
+p_from_client_id payment.from_client_id%type,
+p_to_client_id payment.to_client_id%type,
+p_create_date payment.CREATE_DTIME%type,
+p_summa payment.summa%type) return payment.payment_id%type;
   
 --Сброс платежа
 
