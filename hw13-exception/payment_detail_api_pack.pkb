@@ -1,16 +1,16 @@
 Create or replace package body payment_detail_api_pack is
 
 /*
-Автор: Verbitskiy M.S
-Описание скрипта: API для сущностей “Детали платежа”
+РђРІС‚РѕСЂ: Verbitskiy M.S
+РћРїРёСЃР°РЅРёРµ СЃРєСЂРёРїС‚Р°: API РґР»СЏ СЃСѓС‰РЅРѕСЃС‚РµР№ вЂњР”РµС‚Р°Р»Рё РїР»Р°С‚РµР¶Р°вЂќ
 */
 
---Добавление/обновление данных платежа
+--Р”РѕР±Р°РІР»РµРЅРёРµ/РѕР±РЅРѕРІР»РµРЅРёРµ РґР°РЅРЅС‹С… РїР»Р°С‚РµР¶Р°
 
 	procedure insert_or_update_payment_detail(p_payment_id PAYMENT_DETAIL.payment_id%type, 
 p_payment_details t_payment_details_array)
 is
-v_message varchar2(200 char) := 'Данные платежа добавлены или обновлены по списку id_поля/значение';
+v_message varchar2(200 char) := 'Р”Р°РЅРЅС‹Рµ РїР»Р°С‚РµР¶Р° РґРѕР±Р°РІР»РµРЅС‹ РёР»Рё РѕР±РЅРѕРІР»РµРЅС‹ РїРѕ СЃРїРёСЃРєСѓ id_РїРѕР»СЏ/Р·РЅР°С‡РµРЅРёРµ';
 v_current_date date := sysdate; 
 Begin 
      if p_payment_details is not empty then 
@@ -46,12 +46,12 @@ Begin
 end;
 
 
---Удаление платежа
+--РЈРґР°Р»РµРЅРёРµ РїР»Р°С‚РµР¶Р°
 
 	procedure delete_payment_detail (p_payment_id PAYMENT_DETAIL.payment_id%type, 
 p_delete_field_pay t_numbers_array)
 is 
-v_message varchar2(200 char) := 'Детали платежа удалены по списку id_полей';
+v_message varchar2(200 char) := 'Р”РµС‚Р°Р»Рё РїР»Р°С‚РµР¶Р° СѓРґР°Р»РµРЅС‹ РїРѕ СЃРїРёСЃРєСѓ id_РїРѕР»РµР№';
 v_current_date timestamp := systimestamp;
 Begin  
     if p_payment_id is null 
@@ -68,7 +68,7 @@ Begin
 	
 	dbms_output.put_line(v_message || '. ID: ' || p_payment_id);
     dbms_output.put_line(to_char(v_current_date, 'dy MM YYYY hh12:ss:mi:ff5'));
-    dbms_output.put_line('Количество удаляемых полей: ' || p_delete_field_pay.count());
+    dbms_output.put_line('РљРѕР»РёС‡РµСЃС‚РІРѕ СѓРґР°Р»СЏРµРјС‹С… РїРѕР»РµР№: ' || p_delete_field_pay.count());
 end;
 
 

@@ -1,31 +1,31 @@
 Create or replace package payment_detail_api_pack is
 
 /*
-Автор: Verbitskiy M.S
-Описание скрипта: API для сущностей “Детали платежа”
+РђРІС‚РѕСЂ: Verbitskiy M.S
+РћРїРёСЃР°РЅРёРµ СЃРєСЂРёРїС‚Р°: API РґР»СЏ СЃСѓС‰РЅРѕСЃС‚РµР№ вЂњР”РµС‚Р°Р»Рё РїР»Р°С‚РµР¶Р°вЂќ
 */
 
---Сообщения об ошибках
-	c_error_msg_empty_field_id constant varchar2(100 char) := 'ID поля не может быть пустым';
-	c_error_msg_empty_field_value constant varchar2(100 char) := 'Значение в поле не может быть пустым';
-	c_error_msg_empty_collection constant varchar2(100 char) := 'Коллекция не содержит данных';
-	c_error_msg_empty_object_id constant varchar2(100 char) := 'ID объекта не может быть пустым';
+--РЎРѕРѕР±С‰РµРЅРёСЏ РѕР± РѕС€РёР±РєР°С…
+	c_error_msg_empty_field_id constant varchar2(100 char) := 'ID РїРѕР»СЏ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј';
+	c_error_msg_empty_field_value constant varchar2(100 char) := 'Р—РЅР°С‡РµРЅРёРµ РІ РїРѕР»Рµ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј';
+	c_error_msg_empty_collection constant varchar2(100 char) := 'РљРѕР»Р»РµРєС†РёСЏ РЅРµ СЃРѕРґРµСЂР¶РёС‚ РґР°РЅРЅС‹С…';
+	c_error_msg_empty_object_id constant varchar2(100 char) := 'ID РѕР±СЉРµРєС‚Р° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј';
     
---Коды ошибкок
+--РљРѕРґС‹ РѕС€РёР±РєРѕРє
     
     c_error_code_invalid_input_parameter constant number(10) := -20101;
 
---Объекты исключений
+--РћР±СЉРµРєС‚С‹ РёСЃРєР»СЋС‡РµРЅРёР№
     invalid_input_parameter exception;
     pragma exception_init(invalid_input_parameter, c_error_code_invalid_input_parameter);
 	
 
---Добавление/обновление данных платежа
+--Р”РѕР±Р°РІР»РµРЅРёРµ/РѕР±РЅРѕРІР»РµРЅРёРµ РґР°РЅРЅС‹С… РїР»Р°С‚РµР¶Р°
 
 	procedure insert_or_update_payment_detail(p_payment_id PAYMENT_DETAIL.payment_id%type, 
 p_payment_details t_payment_details_array);
 
---Удаление платежа
+--РЈРґР°Р»РµРЅРёРµ РїР»Р°С‚РµР¶Р°
 
 	procedure delete_payment_detail (p_payment_id PAYMENT_DETAIL.payment_id%type, 
 p_delete_field_pay t_numbers_array);
