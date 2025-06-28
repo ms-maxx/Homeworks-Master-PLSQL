@@ -1,22 +1,22 @@
 create or replace package common_pack is 
 
---Сообщения об ошибках
+--РЎРѕРѕР±С‰РµРЅРёСЏ РѕР± РѕС€РёР±РєР°С…
 
-	c_error_msg_empty_field_id constant varchar2(100 char) := 'ID поля не может быть пустым';
-	c_error_msg_empty_field_value constant varchar2(100 char) := 'Значение в поле не может быть пустым';
-	c_error_msg_empty_collection constant varchar2(100 char) := 'Коллекция не содержит данных';
-	c_error_msg_empty_object_id constant varchar2(100 char) := 'ID объекта не может быть пустым';
-	c_error_msg_empty_reason constant varchar2(100 char) := 'Причина не может быть пустой';
-    c_error_msg_delete_forbidden constant varchar2(100 char) := 'Удаление объекта запрещено';
-    c_error_msg_manual_changes constant varchar2(100 char) := 'Изменения должны выполняться только через API';
+	c_error_msg_empty_field_id constant varchar2(100 char) := 'ID РїРѕР»СЏ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј';
+	c_error_msg_empty_field_value constant varchar2(100 char) := 'Р—РЅР°С‡РµРЅРёРµ РІ РїРѕР»Рµ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј';
+	c_error_msg_empty_collection constant varchar2(100 char) := 'РљРѕР»Р»РµРєС†РёСЏ РЅРµ СЃРѕРґРµСЂР¶РёС‚ РґР°РЅРЅС‹С…';
+	c_error_msg_empty_object_id constant varchar2(100 char) := 'ID РѕР±СЉРµРєС‚Р° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј';
+	c_error_msg_empty_reason constant varchar2(100 char) := 'РџСЂРёС‡РёРЅР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚РѕР№';
+    c_error_msg_delete_forbidden constant varchar2(100 char) := 'РЈРґР°Р»РµРЅРёРµ РѕР±СЉРµРєС‚Р° Р·Р°РїСЂРµС‰РµРЅРѕ';
+    c_error_msg_manual_changes constant varchar2(100 char) := 'РР·РјРµРЅРµРЅРёСЏ РґРѕР»Р¶РЅС‹ РІС‹РїРѕР»РЅСЏС‚СЊСЃСЏ С‚РѕР»СЊРєРѕ С‡РµСЂРµР· API';
 
---Коды ошибок
+--РљРѕРґС‹ РѕС€РёР±РѕРє
 
     c_error_code_invalid_input_parameter constant number(10) := -20101;
     c_error_code_delete_forbidden constant number(10) := -20102;
     c_error_code_manual_changes constant number(10) := -20103;
 
---Объекты исключений
+--РћР±СЉРµРєС‚С‹ РёСЃРєР»СЋС‡РµРЅРёР№
 
     invalid_input_parameter exception;
     pragma exception_init(invalid_input_parameter, c_error_code_invalid_input_parameter);
@@ -25,11 +25,11 @@ create or replace package common_pack is
     invalid_manual_changes exception;
     pragma exception_init(invalid_manual_changes, c_error_code_manual_changes);
     
---Включение/Отключение разрешения менять в ручную данные объектов
+--Р’РєР»СЋС‡РµРЅРёРµ/РћС‚РєР»СЋС‡РµРЅРёРµ СЂР°Р·СЂРµС€РµРЅРёСЏ РјРµРЅСЏС‚СЊ РІ СЂСѓС‡РЅСѓСЋ РґР°РЅРЅС‹Рµ РѕР±СЉРµРєС‚РѕРІ
     
     procedure enable_manual_changes;
     procedure disable_manual_changes;
-    --Разрешены ли ручные изменения на глобальном уровне
+    --Р Р°Р·СЂРµС€РµРЅС‹ Р»Рё СЂСѓС‡РЅС‹Рµ РёР·РјРµРЅРµРЅРёСЏ РЅР° РіР»РѕР±Р°Р»СЊРЅРѕРј СѓСЂРѕРІРЅРµ
     function is_manual_changes_allowed return boolean;
 
 end common_pack;
