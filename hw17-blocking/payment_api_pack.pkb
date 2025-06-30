@@ -1,4 +1,4 @@
-CREATE OR REPLACE PACKAGE BODY payment_api_pack IS
+create or replace PACKAGE BODY payment_api_pack IS
 
 /*
 Автор: Verbitskiy M.S
@@ -195,7 +195,7 @@ CREATE OR REPLACE PACKAGE BODY payment_api_pack IS
             t.payment_id = p_payment_id
         FOR UPDATE NOWAIT;
 
-        IF v_status IN ( 1, 2, 3 ) THEN
+        IF v_status IN ( c_status_end_pay_succes, c_status_error, c_status_cancel) THEN
             raise_application_error(common_pack.c_error_code_infinal_object, common_pack.c_error_msg_infinal_object);
         END IF;
 
